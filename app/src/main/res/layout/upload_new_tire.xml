@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/width_p"
+        android:prompt="@string/width_prompt"
+        android:spinnerMode="dropdown"
+        android:layout_below="@+id/size_text"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratio_p"
+        android:layout_marginLeft="0dp"
+        android:spinnerMode="dropdown"
+        android:labelFor="@string/ratio_prompt"
+        android:prompt="@string/ratio_prompt"
+        android:layout_below="@+id/width_p"
+        android:layout_alignStart="@+id/width_p" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/diameter_p"
+        android:layout_marginLeft="0dp"
+        android:spinnerMode="dropdown"
+        android:prompt="@string/diameter_prompt"
+        android:layout_below="@+id/ratio_p"
+        android:layout_alignStart="@+id/ratio_p" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Size"
+        android:textSize="24dp"
+        android:id="@+id/size_text"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Width"
+        android:textSize="14dp"
+        android:textStyle="italic"
+        android:id="@+id/textView"
+        android:layout_alignTop="@+id/width_p"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ratio"
+        android:textSize="14dp"
+        android:textStyle="italic"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/width_p"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diameter"
+        android:textSize="14dp"
+        android:textStyle="italic"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/ratio_p"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

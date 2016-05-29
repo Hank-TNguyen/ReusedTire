@@ -1,3 +1,86 @@
 <resources>
     <string name="app_name">ReusedTire</string>
+
+    <string name="width_prompt">Width</string>
+    <string name="ratio_prompt">Ratio</string>
+    <string name="diameter_prompt">Diameter</string>
+    
+    <string-array name="width_option">
+        <item>155</item>
+        <item>165</item>
+        <item>175</item>
+        <item>185</item>
+        <item>195</item>
+        <item>205</item>
+        <item>215</item>
+        <item>225</item>
+        <item>235</item>
+        <item>245</item>
+        <item>255</item>
+        <item>265</item>
+        <item>275</item>
+        <item>285</item>
+        <item>295</item>
+        <item>305</item>
+        <item>315</item>
+        <item>325</item>
+        <item>335</item>
+        <item>345</item>
+        <item>355</item>
+    </string-array>
+
+    <string-array name="ratio_option">
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+        <item>50</item>
+        <item>55</item>
+        <item>60</item>
+        <item>65</item>
+    </string-array>
+
+    <string-array name="diameter_option">
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+    </string-array>
+
+    <string name="brand_prompt">Choose a Brand</string>
+
+    <string-array name="brand_option">
+        <item>Bridgestone</item>
+        <item>Continental</item>
+        <item>Falken</item>
+        <item>Firestone</item>
+        <item>Michelin</item>
+        <item>Muteki</item>
+        <item>Pirelli</item>
+        <item>Yokohama</item>
+    </string-array>
+
+    <string name="quantity_prompt">Tires</string>
+
+    <string-array name="quantity_option">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>4+</item>
+    </string-array>
+
+
 </resources>
