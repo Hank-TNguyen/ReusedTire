@@ -38,4 +38,19 @@ public class TireTest extends TestCase{
         assertEquals("Brand not matched", tire.getBrand().toString(), "Muteki");
     }
 
+    public void testTireObject3(){
+        TireBrand tb = TireBrand.Falken;
+        Season s = Season.ALLSEASON;
+        String year = "2014";
+        String make = "Chrysler";
+        SpeedRating sr = SpeedRating.THREE;
+        Tire mTire = new Tire(tb, 240, 50, 24, year, make, s, sr);
+
+        assertNotNull(mTire);
+        assertEquals("Brand not matched", mTire.getBrand().toString(), "Falken");
+        assertEquals("Year not matched", mTire.getYear(), "2014");
+        assertEquals("Make not matched", mTire.getMake(), "Chrysler");
+        assertEquals("Season not matched", mTire.getSeason().toString(), "All-season");
+    }
+
 }

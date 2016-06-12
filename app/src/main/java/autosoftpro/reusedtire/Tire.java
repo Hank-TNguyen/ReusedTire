@@ -1,5 +1,9 @@
 package autosoftpro.reusedtire;
 
+
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * Created by Hung on 5/29/2016.
  *
@@ -14,14 +18,52 @@ package autosoftpro.reusedtire;
 public class Tire {
     private TireBrand brand;
     private Size size;
+    private String year;
+    private String make;
+    private Season season;
+    private SpeedRating rating;
 
-    public Tire(TireBrand tb, int w, int r, int d){
-        this.size= new Size(w,r,d);
+    public Tire(TireBrand tb, int w, int r, int d, String year, String make, Season season, SpeedRating sr ){
+        this.size = new Size(w,r,d);
         this.brand = tb;
+        this.year = year;
+        this.make = make;
+        this.season = season;
+        this.rating = sr;
     }
 
-    public Tire(){
+    public Tire(){}
 
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public Season getSeason() {
+        return season;
+    }
+
+    public void setSeason(Season season) {
+        this.season = season;
+    }
+
+    public SpeedRating getRating() {
+        return rating;
+    }
+
+    public void setRating(SpeedRating rating) {
+        this.rating = rating;
     }
 
     public Tire(TireBrand tb, Size s){
@@ -49,6 +91,7 @@ public class Tire {
         return "Tire: " + "Brand: " + getBrand()
                 + " , Size: " + size.toString();
     }
+
 }
 
 class Size{

@@ -3,73 +3,156 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Spinner
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/width_p"
-        android:prompt="@string/width_prompt"
-        android:spinnerMode="dropdown"
-        android:layout_below="@+id/size_text"
-        android:layout_alignParentStart="true" />
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_above="@+id/upload_tire"
+        android:layout_alignParentEnd="true">
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ratio_p"
-        android:layout_marginLeft="0dp"
-        android:spinnerMode="dropdown"
-        android:labelFor="@string/ratio_prompt"
-        android:prompt="@string/ratio_prompt"
-        android:layout_below="@+id/width_p"
-        android:layout_alignStart="@+id/width_p" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/width_p"
+                android:prompt="@string/width_prompt"
+                android:spinnerMode="dropdown"
+                android:layout_below="@+id/size_text"
+                android:layout_alignParentStart="true" />
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/diameter_p"
-        android:layout_marginLeft="0dp"
-        android:spinnerMode="dropdown"
-        android:prompt="@string/diameter_prompt"
-        android:layout_below="@+id/ratio_p"
-        android:layout_alignStart="@+id/ratio_p" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratio_p"
+                android:layout_marginLeft="0dp"
+                android:spinnerMode="dropdown"
+                android:labelFor="@string/ratio_prompt"
+                android:prompt="@string/ratio_prompt"
+                android:layout_below="@+id/width_p"
+                android:layout_alignStart="@+id/width_p" />
 
-    <TextView
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/diameter_p"
+                android:layout_marginLeft="0dp"
+                android:spinnerMode="dropdown"
+                android:prompt="@string/diameter_prompt"
+                android:layout_below="@+id/ratio_p"
+                android:layout_alignStart="@+id/ratio_p" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Size"
+                android:textSize="24dp"
+                android:id="@+id/size_text"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Width"
+                android:textSize="14dp"
+                android:textStyle="italic"
+                android:id="@+id/textView"
+                android:layout_alignTop="@+id/width_p"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ratio"
+                android:textSize="14dp"
+                android:textStyle="italic"
+                android:id="@+id/textView2"
+                android:layout_below="@+id/width_p"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diameter"
+                android:textSize="14dp"
+                android:textStyle="italic"
+                android:id="@+id/textView3"
+                android:layout_below="@+id/ratio_p"
+                android:layout_alignParentEnd="true" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/brand_p"
+                android:spinnerMode="dropdown"
+                android:layout_below="@+id/diameter_p"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="34dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brand"
+                android:textSize="24dp"
+                android:id="@+id/textView4"
+                android:layout_below="@+id/diameter_p"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type"
+                android:textSize="24dp"
+                android:id="@+id/textView5"
+                android:layout_below="@+id/brand_p"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="130dp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/season_p"
+                android:spinnerMode="dropdown"
+                android:layout_marginTop="30dp"
+                android:layout_alignTop="@+id/textView5"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Speed Rating"
+                android:textSize="24dp"
+                android:id="@+id/textView8"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/season_p" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rating_p"
+                android:spinnerMode="dropdown"
+                android:layout_below="@+id/textView8"
+                android:layout_alignParentStart="true">
+            </Spinner>
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Size"
-        android:textSize="24dp"
-        android:id="@+id/size_text"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:text="Upload"
+        android:id="@+id/upload_tire"
+        android:onClick="uploadTire"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="42dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Width"
-        android:textSize="14dp"
-        android:textStyle="italic"
-        android:id="@+id/textView"
-        android:layout_alignTop="@+id/width_p"
-        android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ratio"
-        android:textSize="14dp"
-        android:textStyle="italic"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/width_p"
-        android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Diameter"
-        android:textSize="14dp"
-        android:textStyle="italic"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/ratio_p"
-        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

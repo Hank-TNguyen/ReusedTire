@@ -11,7 +11,7 @@ public enum TireBrand{
     Yokohama("Yokohama");
 
     private String brand;
-    private TireBrand(String b){
+    TireBrand(String b){
         brand = b;
     }
 
