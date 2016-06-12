@@ -90,5 +90,10 @@
         <item>5</item>
     </string-array>
 
+    <string-array name="season_option">
+        <item>All Season</item>
+        <item>Winter</item>
+    </string-array>
+
 
 </resources>

@@ -2,9 +2,12 @@ package autosoftpro.reusedtire;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -15,7 +18,7 @@ import java.net.URL;
  */
 public class UploadTireActivity extends Activity {
 
-    private Spinner widthSpinner, ratioSpinner, diameterSpinner, brandSpinner, ratingSpinner;
+    private Spinner widthSpinner, ratioSpinner, diameterSpinner, brandSpinner, ratingSpinner, seasonSpinner;
     private EditText modelText;
 
     @Override
@@ -24,7 +27,8 @@ public class UploadTireActivity extends Activity {
         setContentView(R.layout.upload_new_tire);
         setUpSizeSpinners();
         setUpBrandSpinner();
-        modelText = (EditText) findViewById(R.id.model_edittext);
+        setUpRatingSpinner();
+        setUpSeasonSpinner();
     }
 
     private void setUpSizeSpinners(){
@@ -71,12 +75,23 @@ public class UploadTireActivity extends Activity {
         ratingSpinner.setAdapter(ratingSpinnerAdapter);
     }
 
-    public void uploadTire(){
-        int w = (int) widthSpinner.getSelectedItem();
-        int r = (int) ratioSpinner.getSelectedItem();
-        int d = (int) diameterSpinner.getSelectedItem();
-        TireBrand tb = TireBrand.valueOf(brandSpinner.getSelectedItem().toString());
+    private void setUpSeasonSpinner(){
+        seasonSpinner = (Spinner) findViewById(R.id.season_p);
+        ArrayAdapter<CharSequence> seasonSpinnerAdapter
+                = ArrayAdapter.createFromResource(this, R.array.season_option,
+                android.R.layout.simple_spinner_dropdown_item);
+        seasonSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        seasonSpinner.setAdapter(seasonSpinnerAdapter);
+    }
 
+    public void uploadTire(View view){
+        String w = (String) widthSpinner.getSelectedItem();
+        String r = (String) ratioSpinner.getSelectedItem();
+        String d = (String) diameterSpinner.getSelectedItem();
+        TireBrand tb = TireBrand.valueOf(brandSpinner.getSelectedItem().toString());
+        Season s = Season.fromString(seasonSpinner.getSelectedItem().toString());
+        Toast.makeText(this, "Uploading...", Toast.LENGTH_SHORT).show();
+        new UploadTireToServer(this).execute(w, r, d, tb.toString(), s.toString());
     }
 
 

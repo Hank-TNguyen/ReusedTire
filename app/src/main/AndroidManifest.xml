@@ -1,9 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="autosoftpro.reusedtire">
 
-    <uses-sdk
-        android:minSdkVersion="21"/>
-
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application

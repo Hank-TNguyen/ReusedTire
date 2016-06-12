@@ -2,6 +2,7 @@ package autosoftpro.reusedtire;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -15,13 +16,13 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.PriorityQueue;
 
 /**
  * Created by Hung on 6/11/2016.
  */
 public class UploadTireToServer extends AsyncTask<Object, Void, String> {
 
+    public static final String uploadLink = "http://reusedtire.com/androidApp/uploadtire.php";
     private Context context;
 
     public UploadTireToServer(Context context){
@@ -29,10 +30,10 @@ public class UploadTireToServer extends AsyncTask<Object, Void, String> {
     }
     @Override
     protected String doInBackground(Object... params) {
-        int width = (int) params[0];
-        int ratio = (int) params[1];
-        int diameter = (int) params[2];
-        TireBrand tb = (TireBrand) params[3];
+        String width = (String) params[0];
+        String ratio = (String) params[1];
+        String diameter = (String) params[2];
+        String tb = (String) params[3];
 
         String data;
         String link;
@@ -41,11 +42,12 @@ public class UploadTireToServer extends AsyncTask<Object, Void, String> {
 
         try{
             data = "?width=" + URLEncoder.encode(String.valueOf(width), "UTF-8");
-            data += "&ratio" + URLEncoder.encode(String.valueOf(ratio), "UTF-8");
-            data += "&diameter" + URLEncoder.encode(String.valueOf(diameter), "UTF-8");
-            data += "&brand" + URLEncoder.encode(tb.toString(), "UTF-8");
+            data += "&ratio=" + URLEncoder.encode(String.valueOf(ratio), "UTF-8");
+            data += "&diameter=" + URLEncoder.encode(String.valueOf(diameter), "UTF-8");
+            data += "&brand=" + URLEncoder.encode(tb.toString(), "UTF-8");
 
-            link = "" + data;
+            link = uploadLink + data;
+            Log.i("upload data", link);
             //TODO: add the database link
             URL url = new URL(link);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -72,9 +74,10 @@ public class UploadTireToServer extends AsyncTask<Object, Void, String> {
                 String query_result = jsonObj.getString("query_result");
                 if (query_result.equals("SUCCESS")){
                     Toast.makeText(context, "Upload succeeded.",Toast.LENGTH_SHORT).show();
-                } else if (query_result.equals("Failure")){
+                } else if (query_result.equals("FAILURE")){
                     Toast.makeText(context, "Upload failed.", Toast.LENGTH_SHORT).show();
                 } else {
+                    Log.e("Error msg", query_result);
                     Toast.makeText(context, "Couldn't connect to remote database", Toast.LENGTH_SHORT).show();
                 }
             } catch (JSONException e) {
