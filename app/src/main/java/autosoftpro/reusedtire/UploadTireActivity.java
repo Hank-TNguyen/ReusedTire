@@ -17,8 +17,6 @@ public class UploadTireActivity extends Activity {
 
     private Spinner widthSpinner, ratioSpinner, diameterSpinner, brandSpinner, ratingSpinner;
     private EditText modelText;
-    private String link = "";
-    //TODO: link is the database interface
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,13 +76,6 @@ public class UploadTireActivity extends Activity {
         int r = (int) ratioSpinner.getSelectedItem();
         int d = (int) diameterSpinner.getSelectedItem();
         TireBrand tb = TireBrand.valueOf(brandSpinner.getSelectedItem().toString());
-
-        try {
-            URL url = new URL(link);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
 
     }
 
