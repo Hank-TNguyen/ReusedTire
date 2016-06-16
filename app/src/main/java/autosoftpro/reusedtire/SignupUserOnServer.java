@@ -16,35 +16,34 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.UUID;
 
 /**
- * Created by Hung on 6/11/2016.
+ * Created by Hung on 6/15/2016.
  */
-public class UploadTireToServer extends AsyncTask<Object, Void, String> {
-
-    public static final String uploadLink = "http://reusedtire.com/androidApp/uploadtire.php";
+public class SignupUserOnServer extends AsyncTask<Object, Void, String> {
+    public static final String uploadLink = "http://reusedtire.com/androidApp/signupuser.php";
     private Context context;
 
-    public UploadTireToServer(Context context){
+    public SignupUserOnServer(Context context){
         this.context = context;
     }
+
     @Override
     protected String doInBackground(Object... params) {
-        String width = (String) params[0];
-        String ratio = (String) params[1];
-        String diameter = (String) params[2];
-        String tb = (String) params[3];
-
+        String emailaddress= (String) params[0];
+        String password = (String) params[1];
+        String uuid = UUID.randomUUID().toString();
         String data;
         String link;
         BufferedReader bfReader;
         String result;
 
         try{
-            data = "?width=" + URLEncoder.encode(String.valueOf(width), "UTF-8");
-            data += "&ratio=" + URLEncoder.encode(String.valueOf(ratio), "UTF-8");
-            data += "&diameter=" + URLEncoder.encode(String.valueOf(diameter), "UTF-8");
-            data += "&brand=" + URLEncoder.encode(tb.toString(), "UTF-8");
+
+            data = "?emailaddress=" + URLEncoder.encode(String.valueOf(emailaddress), "UTF-8");
+            data += "&password=" + URLEncoder.encode(String.valueOf(password), "UTF-8");
+            data += "&id=" + URLEncoder.encode(String.valueOf(uuid), "UTF-8");
 
             link = uploadLink + data;
             Log.i("upload data", link);
@@ -73,9 +72,9 @@ public class UploadTireToServer extends AsyncTask<Object, Void, String> {
                 JSONObject jsonObj = new JSONObject(jsonStr);
                 String query_result = jsonObj.getString("query_result");
                 if (query_result.equals("SUCCESS")){
-                    Toast.makeText(context, "Upload succeeded.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Successfully signed up.",Toast.LENGTH_SHORT).show();
                 } else if (query_result.equals("FAILURE")){
-                    Toast.makeText(context, "Upload failed.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Sign up have failed.", Toast.LENGTH_SHORT).show();
                 } else {
                     Log.e("Error msg", query_result);
                     Toast.makeText(context, "Couldn't connect to remote database", Toast.LENGTH_SHORT).show();

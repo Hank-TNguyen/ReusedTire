@@ -13,7 +13,7 @@ public class MainScreenActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_screen);
 
-        Intent upload = new Intent(this, UploadTireActivity.class);
+        Intent upload = new Intent(this, SignupActivity.class);
         startActivity(upload);
     }
 }
