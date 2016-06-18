@@ -22,6 +22,15 @@ public class Tire {
     private String make;
     private Season season;
     private SpeedRating rating;
+    private String idOnServer = null;
+
+    public String getIdOnServer() {
+        return idOnServer;
+    }
+
+    public void setIdOnServer(String idOnServer) {
+        this.idOnServer = idOnServer;
+    }
 
     public Tire(TireBrand tb, int w, int r, int d, String year, String make, Season season, SpeedRating sr ){
         this.size = new Size(w,r,d);

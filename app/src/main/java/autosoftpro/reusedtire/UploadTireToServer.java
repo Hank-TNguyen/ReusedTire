@@ -22,7 +22,7 @@ import java.net.URLEncoder;
  */
 public class UploadTireToServer extends AsyncTask<Object, Void, String> {
 
-    public static final String uploadLink = "http://reusedtire.com/androidApp/uploadtire.php";
+    public static final String uploadLink = mLink.hostingLink + "uploadtire.php";
     private Context context;
 
     public UploadTireToServer(Context context){

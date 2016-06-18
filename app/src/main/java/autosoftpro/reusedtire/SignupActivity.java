@@ -1,27 +1,11 @@
 package autosoftpro.reusedtire;
 
 import android.app.Activity;
-import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.UUID;
 
 /**
  * Created by Hung on 6/15/2016.
@@ -49,15 +33,11 @@ public class SignupActivity extends Activity {
         String pass = passwordText.getText().toString();
         String confirmPass = confirmPasswordText.getText().toString();
         String emailaddress = emailText.getText().toString();
-        final String[] queryResult = {null};
 
-        final String[] result = {null};
         if (passwordIsMatched(pass, confirmPass) && !passwordContainQuotationMark(pass)){
             Toast.makeText(this, "Signing up...", Toast.LENGTH_SHORT).show();
-
-            // call asynctask class
-            SignupUserOnServer suos = (SignupUserOnServer) new
-                    SignupUserOnServer(this).execute(emailaddress, pass);
+            userController.SignupUserOnServer suos = (userController.SignupUserOnServer) new
+                    userController.SignupUserOnServer(this).execute(emailaddress, pass);
         }
     }
 
