@@ -27,6 +27,9 @@
             android:label="Signup">
         </activity>
 
+        <activity android:name=".LoginActivity"
+            android:label="Login">
+        </activity>
     </application>
 
 

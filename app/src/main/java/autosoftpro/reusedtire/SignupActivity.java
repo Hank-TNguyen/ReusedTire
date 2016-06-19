@@ -36,8 +36,8 @@ public class SignupActivity extends Activity {
 
         if (passwordIsMatched(pass, confirmPass) && !passwordContainQuotationMark(pass)){
             Toast.makeText(this, "Signing up...", Toast.LENGTH_SHORT).show();
-            userController.SignupUserOnServer suos = (userController.SignupUserOnServer) new
-                    userController.SignupUserOnServer(this).execute(emailaddress, pass);
+            UserController.SignupUserOnServer suos = (UserController.SignupUserOnServer) new
+                    UserController.SignupUserOnServer(this).execute(emailaddress, pass);
         }
     }
 

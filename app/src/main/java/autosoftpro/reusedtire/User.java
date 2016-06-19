@@ -84,4 +84,9 @@ public class User {
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    @Override
+    public String toString(){
+        return getName() + " at " + getEmail();
+    }
 }

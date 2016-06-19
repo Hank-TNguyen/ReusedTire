@@ -30,6 +30,10 @@ public class LoginActivity extends Activity {
     }
 
     public void login(View v) {
+        String username = usernameText.getText().toString();
+        String password = passwordText.getText().toString();
+        UserController.searchUserOnServer suos = (UserController.searchUserOnServer)
+                new UserController.searchUserOnServer(this).execute(username, password);
 
     }
 
