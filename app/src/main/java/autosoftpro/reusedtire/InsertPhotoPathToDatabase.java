@@ -18,24 +18,20 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 /**
- * Created by Hung on 6/11/2016.
+ * Created by Hung on 6/30/2016.
  */
-public class UploadTireToServer extends AsyncTask<Object, Void, String> {
+public class InsertPhotoPathToDatabase extends AsyncTask<Object, Void, String> {
 
-    public static final String uploadTireLink = mLink.hostingLink + "uploadtire.php";
+    public static final String insertPhotoPathLink = mLink.hostingLink + "insertphotopath.php";
     private Context context;
 
-    public UploadTireToServer(Context context){
+    public InsertPhotoPathToDatabase(Context context){
         this.context = context;
     }
     @Override
     protected String doInBackground(Object... params) {
-        String width = (String) params[0];
-        String ratio = (String) params[1];
-        String diameter = (String) params[2];
-        String tb = (String) params[3];
-        String s = (String) params[4];
-        String rating = (String) params[5];
+        String postId = (String) params[0];
+        String imagePath = (String) params[1];
 
         String data;
         String link;
@@ -43,14 +39,10 @@ public class UploadTireToServer extends AsyncTask<Object, Void, String> {
         String result;
 
         try{
-            data = "?width=" + URLEncoder.encode(String.valueOf(width), "UTF-8");
-            data += "&ratio=" + URLEncoder.encode(String.valueOf(ratio), "UTF-8");
-            data += "&diameter=" + URLEncoder.encode(String.valueOf(diameter), "UTF-8");
-            data += "&brand=" + URLEncoder.encode(tb.toString(), "UTF-8");
-            data += "&season=" + URLEncoder.encode(s.toString(), "UTF-8");
-            data += "&rating=" + URLEncoder.encode(rating.toString(), "UTF-8");
+            data = "?postId=" + URLEncoder.encode(String.valueOf(postId), "UTF-8");
+            data += "&imagePath=" + URLEncoder.encode(String.valueOf(imagePath), "UTF-8");
 
-            link = uploadTireLink + data;
+            link = insertPhotoPathLink + data;
             Log.i("upload data", link);
 
             URL url = new URL(link);
@@ -77,7 +69,7 @@ public class UploadTireToServer extends AsyncTask<Object, Void, String> {
                 JSONObject jsonObj = new JSONObject(jsonStr);
                 String query_result = jsonObj.getString(mLink.TAG_QUERY_RESULT);
                 if (query_result.equals("SUCCESS")){
-                    Toast.makeText(context, "Upload succeeded.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Upload succeeded.", Toast.LENGTH_SHORT).show();
                 } else if (query_result.equals("FAILURE")){
                     Toast.makeText(context, "Upload failed.", Toast.LENGTH_SHORT).show();
                 } else {

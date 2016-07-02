@@ -32,4 +32,5 @@ dependencies {
     androidTestCompile 'junit:junit:4.12'
     testCompile 'junit:junit:4.12'
     compile 'com.google.code.gson:gson:2.7'
+    compile files('ftp4j-1.7.2.jar')
 }

@@ -2,7 +2,7 @@ package autosoftpro.reusedtire;
 
 /**
  * Created by Hung on 6/17/2016.
- *  id int(16) not null,
+ *  id text not null,
     name text not null,
     email text not null,
     password text not null,
@@ -12,7 +12,7 @@ package autosoftpro.reusedtire;
     dateofbirth text,
  */
 public class User {
-    private int id;
+    private String id;
     private String name;
     private String email;
     private String password;
@@ -21,11 +21,11 @@ public class User {
     private String profilePict;
     private String dateOfBirth;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

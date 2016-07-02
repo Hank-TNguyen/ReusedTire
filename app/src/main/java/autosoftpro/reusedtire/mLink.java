@@ -7,4 +7,5 @@ public final class mLink{
     public static final String TAG_MESSAGE = "message";
     public static final String TAG_USER_NOT_FOUND = "Username doesn't exist.";
     public static final String TAG_USER_FOUND = "User found!";
+    public static final String PACKAGE_NAME = "autosoftpro.reusedtire.fileprovider";
 }

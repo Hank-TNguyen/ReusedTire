@@ -43,7 +43,6 @@ public class UserController {
         protected String doInBackground(Object... params) {
             String emailaddress= (String) params[0];
             String password = (String) params[1];
-            String uuid = UUID.randomUUID().toString();
             String data;
             String link;
             BufferedReader bfReader;
@@ -53,7 +52,6 @@ public class UserController {
 
                 data = "?emailaddress=" + URLEncoder.encode(String.valueOf(emailaddress), "UTF-8");
                 data += "&password=" + URLEncoder.encode(String.valueOf(password), "UTF-8");
-                data += "&id=" + URLEncoder.encode(String.valueOf(uuid), "UTF-8");
 
                 link = uploadLink + data;
                 Log.i("upload data", link);
@@ -169,7 +167,8 @@ public class UserController {
                             Log.i("password on server", mUser.getPassword());
                             if (mUser.getPassword().equals(password)){
                                 Intent signedIn = new Intent(mAct, MainScreenActivity.class);
-                                signedIn.putExtra("User", emailaddress);
+                                signedIn.putExtra("userId", mUser.getId());
+                                Log.i("userId in Login",String.valueOf(mUser.getId()));
                                 mAct.startActivity(signedIn);
                             } else {
                                 Toast.makeText(context, "Wrong password.", Toast.LENGTH_SHORT).show();
